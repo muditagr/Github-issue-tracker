@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-6 offset-3 text-center mt-4">
+        {% if messages %}
+        <div class="alert alert-warning alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <ul class="list-unstyled mb-0">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        <h2 class="text-center mb-4">Track github issues</h2>
+        <form method="GET">
+            <input type="url" name="repo_url" value="{{ repo_url }}" class="form-control" placeholder="Please enter url of a public github repository" required>
+            <input type="submit" class="btn btn-success btn-sm mt-3">
+        </form>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-sm-10 offset-sm-1">
+        {% if repo_url %}
+        <div class="table-responsive">
+            <table class="table table-hovered table-bordered table-hover">
+                <thead>
+                    <th scope="col" class="text-center">Repository Name</th>
+                    <th scope="col" class="text-center">Total issues</th>
+                    <th scope="col" class="text-center">Issues ( last 24 hrs )</th>
+                    <th scope="col" class="text-center">Issues ( last 7 days )</th>
+                    <th scope="col" class="text-center">Issues ( before 7 days )</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td class="text-right">{{total_count}}</td>
+                        <td class="text-right">{{count_24_hour}}</td>
+                        <td class="text-right">{{count_7_day}}</td>
+                        <td class="text-right">{{count_past}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
