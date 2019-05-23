@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from gh_tracker import views
+from . import views
 
 urlpatterns = [
-    url('', views.Track.as_view())
+    url('', views.TrackIssue.as_view())
 ]
 
 admin.site.site_header = 'issue-tracker'

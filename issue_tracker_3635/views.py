@@ -10,12 +10,12 @@ from django.contrib import messages
 
 
 
-class Track(generic.TemplateView):
+class TrackIssue(generic.TemplateView):
     http_method_name = ('get') # allowed method for this view
-    template_name = 'track_gh.html' # serve html with context
+    template_name = 'track_gh_issue.html' # serve html with context
 
     def get_context_data(self, **kwargs):
-        context = super(Track, self).get_context_data(**kwargs)
+        context = super(TrackIssue, self).get_context_data(**kwargs)
 
         # get url of the repository via get parameter
         repo_ulr = self.request.GET.get('repo_url')

@@ -55,7 +55,7 @@ ROOT_URLCONF = 'issue_tracker_3635.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -144,10 +144,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-LOCAL_APPS = [
-    'gh_tracker',
-]
-
-INSTALLED_APPS += LOCAL_APPS
 
 GITHUB_AUTH_TOKEN = env.str('GITHUB_AUTH_TOKEN', None)
