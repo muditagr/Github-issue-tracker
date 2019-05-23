@@ -145,19 +145,9 @@ STATICFILES_DIRS = [
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOCAL_APPS = [
-    # 'home',
     'gh_tracker',
 ]
-THIRD_PARTY_APPS = [
-    'bootstrap4',
-]
 
-INSTALLED_APPS += LOCAL_APPS + THIRD_PARTY_APPS
-
-
-if DEBUG:
-    # output email to console instead of sending
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
+INSTALLED_APPS += LOCAL_APPS
 
 GITHUB_AUTH_TOKEN = env.str('GITHUB_AUTH_TOKEN', None)
